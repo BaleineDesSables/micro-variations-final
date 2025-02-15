@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Tableaux interactifs</title>
+</head>
+
+<body>
+<div id="container">
+   <svg width="100%" height="100%" viewBox="0 0 100 100">
+       <!-- Masque définissant la zone des images sepia qui va s'afficher (synchronisé avec la zone survolée dans l'image de départ) -->
+       <defs>
+      <mask id="dynamicMaskTriangle"><polygon id="maskTriangle" points="0,0 0,0 0,0" fill="white" /></mask>
+      <mask id="dynamicMaskCircle"><circle id="maskCircle" cx="0" cy="0" r="0" fill="white" /></mask>
+      <mask id="dynamicMaskRectangle"><rect id="maskRectangle" points="0,0 0,0 0,0" fill="white" /></mask>
+       </defs>
+       
+       <!-- Image de départ et image sepia -->
+       <image id="imageA"  x="0" y="0" width="100" height="100" href="A.png"/>
+       <image id="imageB"  x="0" y="0" width="100" height="100" href="A_sepia.png" mask="url(#dynamicMaskTriangle)" />
+
+       <!-- Triangles interactifs de l'image (coordonnées en pourcentage des dimensions de l'image) -->
+       <polygon class="triangle" id="triangle1" points="10,20 40,10 50,40" />
+       <polygon class="triangle" id="triangle2" points="40,20 80,10 60,45" />
+       <polygon class="triangle" id="triangle3" points="10,40 60,90 10,75" />
+       <polygon class="triangle" id="triangle4" points="50,40 90,35 75,80" />
+       <polygon class="triangle" id="triangle5" points="40,75 70,60 50,100" />
+       <polygon class="triangle" id="triangle6" points="70,60 110,50 95,100" />       
+       <!-- Cercles interactifs de l'image (coordonnées en pourcentage des dimensions de l'image) -->
+       <circle class="cercle" id="cercle1" cx="15" cy="15" r="20" />
+       <circle class="cercle" id="cercle2" cx="55" cy="15" r="25" />
+       <circle class="cercle" id="cercle3" cx="95" cy="25" r="10" />
+       <circle class="cercle" id="cercle4" cx="30" cy="70" r="30" />
+       <circle class="cercle" id="cercle5" cx="80" cy="70" r="15" />
+       <!-- Rectangles interactifs de l'image (coordonnées en pourcentage des dimensions de l'image) -->
+       <rect class="rectangle" id="rectangle1" width="60" height="50" x="10" y="10" />
+       <rect class="rectangle" id="rectangle2" width="50" height="30" x="60" y="20" />
+       <rect class="rectangle" id="rectangle3" width="40" height="60" x="40" y="50" />
+</svg>
+</div>
+
+<!-- Script définissant les modalités d'interaction -->
+<script src="script.js"> </script>
+</body>
+</html>
